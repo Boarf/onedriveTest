@@ -217,7 +217,8 @@ public class OneDriveManagement extends AppCompatActivity{
             urlConnection.setDoInput(true);
             urlConnection.setRequestProperty("Authorization","Bearer " + mAuthResult.getAccessToken());
             urlConnection.setRequestProperty("Content-type","text/plain");
-
+            //To avoid internal buffering when streaming, meaning all the data are in memory
+            urlConnection.setFixedLengthStreamingMode(size);
             //Third, connect to the ressource pointed by the URL
             urlConnection.connect();
 
