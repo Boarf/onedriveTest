@@ -46,7 +46,7 @@ public class OneDriveManagement extends AppCompatActivity{
     private AuthenticationResult mAuthResult;
 
     final static String CLIENT_ID = "138823c8-1e4b-490b-a243-86ffbb99b96f";
-    final static String SCOPES [] = {"https://graph.microsoft.com/Files.ReadWrite.All","https://graph.microsoft.com/Files.Read.All"};
+    final static String SCOPES [] = {"https://graph.microsoft.com/Files.ReadWrite"};
     final static String MSGRAPH_URL = "https://graph.microsoft.com/v1.0";
     public static final String APP_FOLDER_PATH = "me/drive/special/approot";
     
@@ -70,7 +70,7 @@ public class OneDriveManagement extends AppCompatActivity{
         try {
             users = mClientApp.getUsers();
 
-            // check that there is one user that has already got a tokent
+            // check that there is one user that has already got a token
             if (users != null && users.size() == 1) {
                 Log.d(TAG, "init: silent");
                 mClientApp.acquireTokenSilentAsync(SCOPES,
